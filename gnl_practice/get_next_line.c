@@ -1,6 +1,8 @@
 
 #include "get_next_line.h"
 
+
+
 	//Get my line
 char	*get_line(t_list *list)
 {
