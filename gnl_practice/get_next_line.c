@@ -3,7 +3,7 @@
 
 
 
-	//Get my line
+	//Get my line\n
 char	*get_line(t_list *list)
 {
 	int		str_len;
