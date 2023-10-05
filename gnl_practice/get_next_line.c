@@ -1,7 +1,37 @@
 
 #include "get_next_line.h"
+#include <stdlib.h>
+#include <stdio.h>
 
+	//Ploish linked list for next call
+void	polish_list(t_list **list)
+{
+	t_list	*last_node;
+	t_list	*clean_node;
+	int		i;
+	int		k;
+	char	*buf;
 
+	buf = malloc(BUFFER_SIZE + 1);
+	clean_mode = malloc(sizeof(t_list));
+	if (NULL == buf || NULL == clean_node)
+		return ;
+	last_node = find_last_node(*list);
+
+	i = 0;
+	k = 0;
+	while (last_node->str_buf[i] != '\0'
+		&& last_node->str_buf[i] != '\n')
+		i++;
+	//         is it != '\0'? ->'\n'
+	while (last_node->str_buf[i] != '\n'
+			&& last_node->str_buf[++i])
+		buf[k++] = last_node->str_buf[i];
+	buf[k] = '\0';
+	clean_node->str_buf = buf;
+	clean_node->next = NULL;
+	dealloc(list, clean_node, buf);
+}
 
 	//Get my line\n
 char	*get_line(t_list *list)
