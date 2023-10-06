@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daoliver <daoliver@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/06 15:16:39 by daoliver          #+#    #+#             */
+/*   Updated: 2023/10/06 15:17:13 by daoliver         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 #include <stdlib.h>
 
@@ -64,7 +76,6 @@ int	len_to_newline(t_list *list)
 	if (NULL = list)
 		return (0);
 	len = 0;
-	//list != NULL
 	while (list)
 	{
 		i = 0;
@@ -100,11 +111,10 @@ void	dealloc(t_list **list, t_list *clean_node, char *buf)
 	}
 	*list = NULL;
 	if (clean_node->str_buf[0])
-			*list = clean_node;
+		*list = clean_node;
 	else
 	{
 		free(buf);
 		free(clean_node);
-
 	}
 }
