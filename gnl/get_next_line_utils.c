@@ -6,7 +6,7 @@
 /*   By: daoliver <daoliver@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:14:54 by daoliver          #+#    #+#             */
-/*   Updated: 2023/10/05 13:19:09 by daoliver         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:51:25 by daoliver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,53 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		s++;
 	ft_strlcpy(substr, s, len + 1);
 	return (substr);
+}
+
+char	*ft_strjoin(char *s1, char *s2)
+{
+	char	*new_str;
+	size_t	i;
+	size_t	j;
+
+	if (!s1)
+	{
+		s1 = malloc(1 * sizeof(char));
+		if (!s1)
+			return (NULL);
+		s1[0] = '\0';
+	}
+	new_str = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	if (!s1)
+		return (free_storage(s1));
+	i = -1;
+	j = 0;
+	if (s1)
+		while (s1[++i] != '\0')
+			new_str[i] = s1[i];
+	while (s2[j] != '\0')
+		new_str[i++] = s2[j++];
+	new_str[ft_strlen(s1) + ft_strlen(s2)] = '\0';
+	free(s1);
+	return (new_str);
+}
+
+size_t	ft_strlcpy(char *dest, char *src, size_t destsize)
+{
+	unsigned int	tmp;
+	unsigned int	aux;
+
+	tmp = 0;
+	aux = 0;
+	while (src[tmp] != '\0')
+		tmp++;
+	if (destsize != '\0')
+	{
+		while (src[aux] != '\0' && aux < (destsize - 1))
+		{
+			dest[aux] = src[aux];
+			aux++;
+		}
+		dest[aux] = '\0';
+	}
+	return (tmp);
 }
