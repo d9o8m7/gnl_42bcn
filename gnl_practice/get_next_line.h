@@ -6,7 +6,7 @@
 /*   By: daoliver <daoliver@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 15:17:28 by daoliver          #+#    #+#             */
-/*   Updated: 2023/10/06 15:25:56 by daoliver         ###   ########.fr       */
+/*   Updated: 2023/10/06 15:27:30 by daoliver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-# define BUFFER_SIZE 50
+#  define BUFFER_SIZE 50
 # endif
 
 # include <unistd.h>
