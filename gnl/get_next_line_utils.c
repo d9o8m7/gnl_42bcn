@@ -6,7 +6,7 @@
 /*   By: daoliver <daoliver@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:14:54 by daoliver          #+#    #+#             */
-/*   Updated: 2023/10/06 15:51:25 by daoliver         ###   ########.fr       */
+/*   Updated: 2023/10/16 14:31:22 by daoliver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ char	*ft_strchr(char *s, int c)
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*substr;
-	size_t	long;
+	size_t	longitud;
 	size_t	i;
 
 	i = 0;
-	long = ft_strlen(s);
+	longitud = ft_strlen(s);
 	if (!s)
 		return (NULL);
-	if (start > long)
+	if (start > longitud)
 	{
 		substr = malloc(sizeof(char) * (1));
 		if (!substr)
@@ -53,7 +53,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 		return (substr);
 	}
 	if (start - len < len)
-		len = long - start;
+		len = longitud - start;
 	substr = (char *)malloc(len + 1);
 	if (!substr)
 		return (NULL);
