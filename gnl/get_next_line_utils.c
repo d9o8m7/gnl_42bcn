@@ -34,7 +34,7 @@ char	*ft_strchr(char *s, int c)
 	return (&s[i]);
 }
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char *s, unsigned int start, size_t len)
 {
 	char	*substr;
 	size_t	longitud;

@@ -6,7 +6,7 @@
 /*   By: daoliver <daoliver@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/04 16:12:12 by daoliver          #+#    #+#             */
-/*   Updated: 2023/10/06 16:04:07 by daoliver         ###   ########.fr       */
+/*   Updated: 2023/10/20 13:49:11 by daoliver         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,41 @@
 
 char	*read_storage(int fd, char *storage)
 {
+	char	*tmp_storage;
+	int		read_bytes;
+
+	read_bytes = 1;
+	tmp_storage = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!tmp_storage)
+		return (NULL);
+	tmp_storage[0] = '\0';
+	while (read_bytes > 0 && !(ft_strchr(tmp_storage, '\n')))
+	{
+		read_bytes = read(fd, tmp_storage, BUFFER_SIZE);
+		if (read_bytes > 0)
+		{
+			tmp_storage[read_bytes] = '\0';
+			storage = ft_strjoin(storage, tmp_storage);
+		}
+	}
+	free(tmp_storage);
+	if (read_bytes == -1)
+		return (free_storage(storage));
+	return (storage);
 }
 
 char	*extract_storage(char *storage)
 {
+	char	*aux;
+	char	*line;
+	int		len;
+
+	aux = ft_strchr(storage, '\n');
+	len = (aux - storage) + 1;
+	line = ft_substr(storage, 0, len);
+	if (!line)
+		return (NULL);
+	return (line);
 }
 
 char	*clean_storage(char *storage)
